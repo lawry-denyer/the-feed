@@ -43,7 +43,6 @@ header.mast{ padding:56px 0 6px; }
 .logo{ margin:0 0 18px; }
 .logomark{
   display:block; width:100%; max-width:640px; height:auto;
-  image-rendering:-webkit-optimize-contrast;
 }
 .subline{
   font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:19px;
@@ -484,7 +483,7 @@ def build():
 <header class="mast">
   <p class="kicker">%(kicker)s</p>
   <div class="logo">
-    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="2560" height="1099">
+    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="1600" height="687">
   </div>
   <p class="subline">%(tagline)s</p>
   <div class="stampline">
