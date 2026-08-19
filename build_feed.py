@@ -482,7 +482,7 @@ def build():
 <header class="mast">
   <p class="kicker">%(kicker)s</p>
   <div class="logo">
-    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="1200" height="515">
+    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="1600" height="687">
   </div>
   <p class="subline">%(tagline)s</p>
   <div class="stampline">
