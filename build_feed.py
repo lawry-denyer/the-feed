@@ -24,11 +24,6 @@ body{
   font-family:'Space Grotesk',system-ui,sans-serif; font-size:17px; line-height:1.62;
   overflow-x:hidden;
 }
-body::before{
-  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
-  background-image:radial-gradient(var(--ink) .5px, transparent .5px);
-  background-size:4px 4px;
-}
 .wrap{ max-width:860px; margin:0 auto; padding:0 22px 90px; position:relative; z-index:1; }
 a{ color:var(--blue-deep); }
 mark{ background:var(--lime); mix-blend-mode:multiply; padding:0 .12em; color:inherit; }
@@ -365,10 +360,17 @@ def item_html(it, extra_class=""):
     )
 
 
+SITE = "https://lawry-denyer.github.io/the-feed"
+
+
 def build_digest():
-    d = "THE FEED — %s\n\n%s\n%s\n%s\n\n" % (
-        ISSUE["kicker"].split("// ")[-1], LEAD["headline"], LEAD["deck"], LEAD["stamps"][0][1])
-    d += "\n".join("%d. %s" % (i + 1, t) for i, t in enumerate(TLDR))
+    """Discord message.  Webhook messages render [text](url) masked links."""
+    d = "**[Read Full Edition Here](%s/%s.html)**\n\n" % (SITE, ISSUE["date_iso"])
+    d += "**THE FEED** \u00b7 %s" % ISSUE["kicker"].split("// ")[-1]
+    if ISSUE["pace"].upper() == "LIGHT":
+        d += "  \u00b7 *light issue \u2014 quiet news day*"
+    d += "\n\n**%s**\n%s\n\n" % (LEAD["headline"], LEAD["deck"])
+    d += "\n".join("**%d.** %s" % (i + 1, t) for i, t in enumerate(TLDR))
     return None, d
 
 
@@ -482,7 +484,7 @@ def build():
 <header class="mast">
   <p class="kicker">%(kicker)s</p>
   <div class="logo">
-    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="1600" height="687">
+    <img class="logomark" src="data:image/png;base64,%(logo)s" alt="THE FEED" width="2560" height="1099">
   </div>
   <p class="subline">%(tagline)s</p>
   <div class="stampline">
