@@ -74,9 +74,9 @@ TLDR = [                        # 6-7 complete thoughts: what happened, then wha
   "...",
 ]
 
-SHARE = [                       # exactly 3, one per person, three DIFFERENT stories
-  {"who":   "LAWRY · LEAD VIDEO EDITOR",   # or "CREATIVE DIRECTOR" / "CEO"
-   "angle": "The argument the post makes, in one line.",
+SHARE = [        # exactly 3, three DIFFERENT stories, always in this order:
+  {"who":   "JARED · CEO",   # then "JAMES · CREATIVE DIRECTOR", then
+   "angle": "The argument the post makes, in one line.",   # "LAWRY · LEAD VIDEO EDITOR"
    "post":  "Ready-to-paste LinkedIn copy.\n\nBlank lines between paragraphs.",
    "why":   "One line on why this is worth their name on it."},
 ]
@@ -88,24 +88,68 @@ render exactly as they always did.
 ## SHARE — the rules that keep it credible
 
 Three people from one company posting daily off one brief will look coordinated
-within a fortnight. These constraints are what stop that.
+within a fortnight, and a competent post nobody remembers is worse than no post.
+These constraints are what stop both.
+
+**Order is fixed: Jared (CEO), then James (Creative Director), then Lawry (Lead
+Video Editor).** `who` reads `JARED · CEO`, `JAMES · CREATIVE DIRECTOR`,
+`LAWRY · LEAD VIDEO EDITOR`.
+
+### The bar
+
+Every post must contain a claim the reader did not already believe when they
+started reading. Not a summary of the news — a reframe of it, or a number that
+contradicts something they assume.
+
+The test: **if the reader would have agreed with your last line before reading
+your first, kill the post and pick a different story.** "Big number, therefore
+this matters" fails. "Everyone read this as X, but the mechanism is actually Y"
+passes.
+
+If no story in the issue supports a post that clears this for a given person,
+research a fresh one for them. A weak post under a real person's name costs
+more than a missing one.
+
+### Shape
+
+- **First two lines are everything.** LinkedIn truncates around 140-200
+  characters on mobile. Those lines must state the surprising thing, not set it
+  up. No throat-clearing, no "I've been thinking about."
+- **One idea.** Not three. Follow it all the way down.
+- Short paragraphs, one to three lines, white space between them.
+- The number early, sourced in the post, named the way a person says it out
+  loud: "figures from Streams Charts", not a citation.
+- **End on the real point.** No question begging for comments, no "what do you
+  think", no tidy aphorism that restates the middle. A flat ending is better
+  than a neat one that says nothing.
+
+### Voice
+
+- First person. Match the person to the story: Jared gets the number a sceptical
+  client needs, James gets the campaign learning, Lawry gets the thing only
+  someone in an edit suite knows.
+- Specifics beat polish. A detail from inside the work — the fridge hum in take
+  four, whether a cut lands at three seconds or five — is worth more than any
+  well-turned sentence.
+- Ambivalence is a human tell. A post allowed to end unresolved reads as real.
+  A post that resolves cleanly reads as written by a machine.
+- **Never invent biography.** No "in my ten years", no invented war stories, no
+  claims about Crux's clients or projects. Write what the person can defend from
+  the news plus their own craft. Opinions about the industry, never
+  announcements about Crux.
+- Banned: hashtag blocks, emoji bullets, engagement bait, one-word lines for
+  drama, "Here's the thing", "Let that sink in", "The result?", "And that's when
+  it hit me."
+- Single spaces after periods inside `post` — that copy gets pasted into
+  LinkedIn. House double-space style still applies to `angle` and `why`.
+
+### Other rules
 
 - **Three different stories.** Never three angles on the lead.
-- **Match the person to the story.** Lawry gets the one where a video editor knows
-  something nobody else in the thread does — craft, format, what an edit can and
-  cannot fix. The creative director gets the campaign learning. The CEO gets the
-  number that shows a sceptical client why owned video and YouTube matter.
-- **No pitch.** Never mention Crux, its services, or that it is hiring. These build
-  reputation by being worth reading. A post that sells stops being worth reading.
-- **Real numbers, sourced in the post**, exactly as the issue reports them, with the
-  publication named the way a person would name it.
-- **Single spaces after periods inside `post`** — that copy leaves the page and gets
-  pasted into LinkedIn. The house double-space style still applies to `angle` and
-  `why`, which stay on the page.
-- **No hashtag blocks, no engagement bait, no "Thoughts?"** First person. Say one
-  thing and stop.
-- **Drop a person rather than pad.** If a day gives a person nothing worth their
-  name, ship two posts and say so. Same rule as every other section.
+- **No pitch.** Never mention Crux, its services, its clients or that it is
+  hiring. These earn attention by being worth reading.
+- 150-230 words each.
+- **Drop a person rather than pad.** Ship two and say so in the report.
 
 Section ids and page numbers, in order: `ws` 02, `ls` 03, `moves` 04, `onstream` 05,
 `watch` 06, `money` 07, `format` 08. Forecast is 09, TL;DR is 10 and Share is 11;
