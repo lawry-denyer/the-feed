@@ -10,6 +10,11 @@ from datetime import date, timedelta
 
 from content import ISSUE, LEAD, SECTIONS, FORECAST, TLDR
 
+try:                      # SHARE arrived 1 Sept 2026; issues before that have none
+    from content import SHARE
+except ImportError:
+    SHARE = []
+
 CSS = """
 :root{
   --paper:#F1F0EA; --white:#FFFFFF; --ink:#141419; --ink-mid:#4A4A55;
@@ -222,6 +227,28 @@ section{ margin:0 0 54px; }
 }
 .tldr p{ margin:0; }
 
+/* share */
+.share{
+  background:var(--lilac); border:3px solid var(--ink); box-shadow:6px 6px 0 var(--ink);
+  list-style:none; margin:0; padding:8px 24px;
+}
+.share li{ padding:22px 0; border-top:2px solid var(--ink); }
+.share li:first-child{ border-top:0; }
+.who{
+  display:inline-block; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; background:var(--ink); color:var(--lime); padding:3px 8px; font-weight:700;
+  margin-bottom:11px;
+}
+.share h4{
+  font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,3.4vw,27px); line-height:1.3;
+  margin:0 0 13px; color:var(--ink);
+}
+.post{
+  background:var(--white); border:3px solid var(--ink); padding:18px 20px; margin:0 0 13px;
+  white-space:pre-wrap; font-size:.97em;
+}
+.share .swhy{ margin:0; font-weight:700; }
+
 .foot{
   margin-top:52px; border-top:3px solid var(--ink); padding-top:16px;
   font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em;
@@ -430,10 +457,27 @@ def build():
         '<ol class="tldr">%s</ol></section>' % titems
     )
 
+    # ---- share ----
+    if SHARE:
+        shitems = "".join(
+            '<li><span class="who">%s</span><h4>%s</h4>'
+            '<div class="post">%s</div><p class="swhy">%s</p></li>'
+            % (esc(sh["who"]), esc(sh["angle"]), esc(sh["post"]), esc(sh["why"]))
+            for sh in SHARE
+        )
+        secs.append(
+            '<section data-sec="share"><div class="sec-head"><h2 class="sec-name">SHARE</h2>'
+            '<span class="pg">pg. 11</span></div><div class="sec-rule"></div>'
+            '<p class="sec-note">one post each, ready to paste, from three different stories</p>'
+            '<ol class="share">%s</ol></section>' % shitems
+        )
+
     # ---- chips ----
     chip_defs = [("all", "EVERYTHING"), ("lead", "THE LEAD")]
     chip_defs += [(s["id"], s["name"]) for s in SECTIONS]
     chip_defs += [("forecast", "FORECAST"), ("tldr", "TL;DR")]
+    if SHARE:
+        chip_defs += [("share", "SHARE")]
     chips = "".join(
         '<button class="chip" data-target="%s" aria-pressed="%s">%s</button>'
         % (cid, "true" if cid == "all" else "false", esc(nm))

@@ -73,11 +73,43 @@ FORECAST = [                    # 3-5 calls
 TLDR = [                        # 6-7 complete thoughts: what happened, then what to do
   "...",
 ]
+
+SHARE = [                       # exactly 3, one per person, three DIFFERENT stories
+  {"who":   "LAWRY · LEAD VIDEO EDITOR",   # or "CREATIVE DIRECTOR" / "CEO"
+   "angle": "The argument the post makes, in one line.",
+   "post":  "Ready-to-paste LinkedIn copy.\n\nBlank lines between paragraphs.",
+   "why":   "One line on why this is worth their name on it."},
+]
 ```
 
+`SHARE` is optional. Issues published before 1 September 2026 do not define it and
+render exactly as they always did.
+
+## SHARE — the rules that keep it credible
+
+Three people from one company posting daily off one brief will look coordinated
+within a fortnight. These constraints are what stop that.
+
+- **Three different stories.** Never three angles on the lead.
+- **Match the person to the story.** Lawry gets the one where a video editor knows
+  something nobody else in the thread does — craft, format, what an edit can and
+  cannot fix. The creative director gets the campaign learning. The CEO gets the
+  number that shows a sceptical client why owned video and YouTube matter.
+- **No pitch.** Never mention Crux, its services, or that it is hiring. These build
+  reputation by being worth reading. A post that sells stops being worth reading.
+- **Real numbers, sourced in the post**, exactly as the issue reports them, with the
+  publication named the way a person would name it.
+- **Single spaces after periods inside `post`** — that copy leaves the page and gets
+  pasted into LinkedIn. The house double-space style still applies to `angle` and
+  `why`, which stay on the page.
+- **No hashtag blocks, no engagement bait, no "Thoughts?"** First person. Say one
+  thing and stop.
+- **Drop a person rather than pad.** If a day gives a person nothing worth their
+  name, ship two posts and say so. Same rule as every other section.
+
 Section ids and page numbers, in order: `ws` 02, `ls` 03, `moves` 04, `onstream` 05,
-`watch` 06, `money` 07, `format` 08. Forecast is 09 and TL;DR is 10; both are built
-from `FORECAST` and `TLDR` rather than from `SECTIONS`.
+`watch` 06, `money` 07, `format` 08. Forecast is 09, TL;DR is 10 and Share is 11;
+all three are built from `FORECAST`, `TLDR` and `SHARE` rather than from `SECTIONS`.
 
 Open on load: the lead, On Stream, One to Watch, the most important number in
 The Money, and Format Lab.
