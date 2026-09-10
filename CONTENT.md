@@ -128,6 +128,16 @@ more than a missing one.
 - First person. Match the person to the story: Jared gets the number a sceptical
   client needs, James gets the campaign learning, Lawry gets the thing only
   someone in an edit suite knows.
+- **Lawry's post is about editing decisions, not about video in general.** The
+  subject is the choice made in the cut and why it was made: where a cut lands,
+  where a sponsor read sits on the timeline, what you hold and what you lose,
+  what an edit can and cannot rescue, the sound problem nobody else noticed. He
+  is a strategic editor, so the post should show an edit decision turning out to
+  be a business decision that nobody in the room recognised as one. A post that
+  only observes something true about a video, without a decision an editor
+  actually makes, has missed the brief and should be rewritten. Frame craft as
+  "most editors would" rather than "I know because I did", and never put him in
+  the expert seat.
 - Specifics beat polish. A detail from inside the work — the fridge hum in take
   four, whether a cut lands at three seconds or five — is worth more than any
   well-turned sentence.
@@ -150,6 +160,34 @@ more than a missing one.
   hiring. These earn attention by being worth reading.
 - 150-230 words each.
 - **Drop a person rather than pad.** Ship two and say so in the report.
+
+## The clarity pass — run this before `./publish.sh`
+
+The build verifier checks mechanics. It cannot tell whether a sentence parses,
+and readers read this on a phone. Do a deliberate read of the whole issue as
+prose before publishing, ideally with fresh eyes rather than the ones that wrote
+it, and fix everything below. These are all real failures caught after
+publication, not hypotheticals.
+
+- **Missing words and broken sentences.** Read every sentence for whether it
+  actually parses. Watch for dangling modifiers, a clause whose subject changes
+  halfway, and "it" / "this" / "them" with no clear or a wrong antecedent.
+- **Anything that needs a second read.** Meaning being recoverable is not good
+  enough. Rewrite it.
+- **Internal contradictions.** If a figure appears twice, check the two mentions
+  agree. Check the deck against the body, and every hook and title against the
+  item's own flagnote — a hook that states flatly what the flagnote hedges is a
+  bug. Two items may not both claim first place from the same study.
+- **Overclaiming in titles and hooks.** "Twitch lost half its audience" and
+  "Twitch carries under half the hours" are different statements. Never assert
+  causation the body then disclaims.
+- **Numbers you inferred rather than read.** Every figure traces to a source. If
+  you calculated it, say so. Check the arithmetic actually supports the adjective.
+- **Undefined terms.** Anything a smart outsider would look up gets defined in
+  the same sentence. Be strict about this for load-bearing terms carried across
+  several items.
+- **Weak claims.** Any sentence presented as insight that is circular, a truism,
+  or something the reader already believed. Cut it or make a real claim.
 
 Section ids and page numbers, in order: `ws` 02, `ls` 03, `moves` 04, `onstream` 05,
 `watch` 06, `money` 07, `format` 08. Forecast is 09, TL;DR is 10 and Share is 11;
