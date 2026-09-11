@@ -42,7 +42,7 @@ SECTIONS = [
         "items": [
             {
                 "title": "Rich people trust creators nearly five times more than celebrities, and the reason is that they watch the product get tested",
-                "hook": "Creators 38.4 percent.  Celebrities 8 percent.  And almost nine in ten said a live test beat a polished film.",
+                "hook": "Asked who they trust on a product review, shoppers earning over 150,000 dollars put creators at 38.4% and celebrities at 8%.  Almost nine in ten said an unscripted test convinced them more than a commercial did.",
                 "open": True,
                 "stamps": [
                     ("NET INFLUENCER · 10 SEP", "https://www.netinfluencer.com/affluent-shoppers-trust-creators-nearly-5x-more-than-celebrities-youtube-anchors-luxury-purchase-journey-per-report/"),
@@ -100,7 +100,7 @@ SECTIONS = [
         "items": [
             {
                 "title": "Wrong owner: a brand paid a streamer to be replaced by an AI of himself, and it won on the only metric anybody was counting",
-                "hook": "Most-viewed of his last twenty streams.  Other creators described it as him removing himself from the equation.",
+                "hook": "The AI feed became the most-watched thing on his channel in twenty streams, and other creators called it him removing himself from the equation.",
                 "open": True,
                 "stamps": [
                     ("THE PUBLISH PRESS · 9 SEP", "https://news.thepublishpress.com/p/can-a-livestreamer-be-replaced-by-ai"),
@@ -210,7 +210,7 @@ SECTIONS = [
         "items": [
             {
                 "title": "Snap says creator-made ads hold attention 16 percent better than the ads brands make themselves",
-                "hook": "Played 25 percent longer.  16 percent more active attention.  Snap's own numbers, on Snap's own inventory.",
+                "hook": "Ads made by creators played 25% longer and held 16% more attention than the ones brands made for the same slot.  Snap's own numbers, on Snap's own inventory.",
                 "open": True,
                 "stamps": [
                     ("SOCIAL MEDIA TODAY · 9 SEP", "https://www.socialmediatoday.com/news/snap-ceo-discusses-ad-development-and-ai/829986/"),
