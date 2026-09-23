@@ -187,7 +187,8 @@ section{ margin:0 0 54px; }
 /* lead */
 .lead-head{
   font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase;
-  font-size:clamp(34px,7.4vw,62px); line-height:1.08; padding-bottom:12px; margin:0 0 16px; letter-spacing:-.02em;
+  font-size:clamp(26px,7.4vw,62px); line-height:1.08; padding-bottom:12px; margin:0 0 16px; letter-spacing:-.02em;
+  overflow-wrap:break-word; hyphens:auto; min-width:0;
 }
 .deck{ font-size:20px; font-weight:500; margin:0 0 20px; }
 
@@ -323,6 +324,42 @@ def esc(s):
     return html.escape(s, quote=False)
 
 
+# Syne ExtraBold uppercase advance widths at letter-spacing -.02em, in em per
+# character, measured in the browser against the embedded font.  Used to size
+# the lead headline off its longest word so the type can never outgrow the box.
+SYNE_EM = {
+    "0":1.047,"1":0.510,"2":0.984,"3":1.036,"4":1.075,"5":0.996,"6":1.114,
+    "7":1.116,"8":1.062,"9":1.139,"A":1.141,"B":1.121,"C":1.297,"D":1.283,
+    "E":1.121,"F":1.109,"G":1.321,"H":1.261,"I":0.401,"J":0.985,"K":1.187,
+    "L":0.924,"M":1.561,"N":1.281,"O":1.311,"P":1.158,"Q":1.311,"R":1.213,
+    "S":1.037,"T":1.081,"U":1.270,"V":1.141,"W":1.863,"X":1.121,"Y":1.051,
+    "Z":1.181," ":0.291,",":0.284,".":0.335,"'":0.281,"&":1.201,";":0.335,
+    "-":0.571,
+}
+# Space available to the headline itself: the 860px wrap, less its 22px side
+# padding, the clip's 16px padding, the 16px flex gap and the 42px plus button.
+LEAD_HEAD_DESKTOP_PX = 726
+LEAD_HEAD_VW_SHARE = 70.0   # the h3 occupies ~70% of viewport width on phones
+LEAD_HEAD_PHONE_PX = 248    # that same share at a 360px phone, the narrowest we size for
+
+
+def lead_head_style(headline):
+    """Size the lead headline from its longest word, so no word can ever cross
+    the edge of the clipping box.  Returns an inline font-size clamp."""
+    widest = 0.0
+    for word in headline.split():
+        w = sum(SYNE_EM.get(c, 1.30) for c in word)
+        widest = max(widest, w)
+    if widest <= 0:
+        return ""
+    widest *= 1.03                                   # safety margin
+    top = max(34.0, min(62.0, LEAD_HEAD_DESKTOP_PX / widest))
+    vw = max(4.2, min(7.4, LEAD_HEAD_VW_SHARE / widest))
+    floor = max(19.0, min(26.0, LEAD_HEAD_PHONE_PX / widest))
+    return ' style="font-size:clamp(%.0fpx,%.2fvw,%.0fpx)"' % (
+        round(floor), vw, round(top))
+
+
 def stamps_html(stamps):
     links = "".join(
         '<a href="%s" target="_blank" rel="noopener">%s</a>' % (html.escape(u, quote=True), esc(t))
@@ -408,10 +445,11 @@ def build():
         '<span class="pg">pg. 01</span></div><div class="sec-rule"></div>'
         '<p class="sec-note">the story that changes how you read the rest</p>'
         '<article class="clip open">'
-        '<button class="clip-head" aria-expanded="true"><h3 class="lead-head">%s</h3>'
+        '<button class="clip-head" aria-expanded="true"><h3%s class="lead-head">%s</h3>'
         '<span class="plus" aria-hidden="true">+</span></button>'
         '<p class="deck">%s</p><div class="clip-body">%s%s%s%s%s</div></article></section>'
     ) % (
+        lead_head_style(LEAD["headline"]),
         esc(LEAD["headline"]),
         esc(LEAD["deck"]),
         stamps_html(LEAD["stamps"]),

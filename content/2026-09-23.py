@@ -7,7 +7,7 @@ ISSUE = {
 }
 
 LEAD = {
-    "headline": "OPENAI HIRED THE MAN WHO BUILT CREATOR SUBSCRIPTIONS, AND THE SAME MORNING BROUGHT WORD THAT ITS SPONSORED POSTS FOR CHATGPT HAVE GONE FROM 61 A MONTH TO 141",
+    "headline": "OPENAI HIRED THE MAN WHO BUILT PATREON, AND ITS SPONSORED POSTS FOR CHATGPT WENT FROM 61 A MONTH TO 141",
     "deck": "Sam Yam co-founded Patreon thirteen years ago and ran its technology.  This morning he said he is joining OpenAI to lead Creator Product, and taking Patreon's former head of product and head of engineering with him.  Hours later Business Insider published the other half: OpenAI's sponsored creator posts for ChatGPT have more than doubled since June.  One company is now buying the pipe creators get paid through and the creators themselves.",
     "stamps": [
         ("THE VERGE · 23 SEP", "https://www.theverge.com/ai-artificial-intelligence/999249/openai-creators-patreon-execs-hire-sam-yam"),
